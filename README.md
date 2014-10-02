@@ -1,1 +1,2 @@
-##Warum das ganze?
+##Beschreibung
+Erweitert BDDfy um die deutsche Sprache.
