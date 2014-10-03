@@ -1,31 +1,33 @@
-﻿using System;
+﻿using BDDfy.German.Reporters.Html;
 using BDDfy.German.Scanners.StepScanners.Fluent;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestStack.BDDfy;
+using TestStack.BDDfy.Configuration;
+using TestStack.BDDfy.Reporters.Html;
 
 namespace BDDfy.German.Samples
 {
     [TestClass]
-    [Story(
-     AsA = "As an Account Holder",
-     IWant = "I want to withdraw cash from an ATM",
-     SoThat = "So that I can get money when the bank is closed")]
+    [GermanStory(
+        AlsEin = "Als ein Mathematiker", WillIch = "Additionen durchführen können",
+        Damit = "Ich nicht alles im Kopf berechnen muss",
+        Title = "Additionen berechnen")]
     public class FirstExampleTest
     {
         [TestMethod]
         public void TestMethod1()
         {
-            this.Angenommen(() =>
-            {
-                Value = 1;
+            Configurator.BatchProcessors.Add(new HtmlReporter(new ClassicGermanReportBuilder()));
+            Configurator.BatchProcessors.HtmlReport.Disable();
 
-            }, "Wert ist 1")
-                .Wenn(() => Value += 2, "1 addiert wird")
-                .Dann(() => Value.Should().Be(2), "soll der Wert 2 sein")
-                .BDDfy("Test");
 
+            this.Angenommen(() => Value = 1, "Angenommen der Wert ist 1")
+                .Wenn(() => Value++, "Der Wert um 1 erhört wird")
+                .Dann(() => Value.Should().Be(2), "Soll der Wert 2 sein")
+                .BDDfy("Einfache Addition");
         }
+
 
         public int Value { get; set; }
     }
