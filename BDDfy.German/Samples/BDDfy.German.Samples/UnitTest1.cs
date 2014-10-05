@@ -26,7 +26,7 @@ namespace BDDfy.German.Samples
                 .Wenn(() => Value++, "Der Wert um 1 erhört wird")
                 .Und(() => Value2 = 1, "Und ein zweiter Wert auf 1 gesetzt wird")
                 .Dann(() => Value.Should().Be(2), "Soll der Wert 2 sein")
-                .Und(() => Value2.Should().Be(1), "Soll der zweite Wert 1 sein")
+                .Und(() => Value2.Should().Be(1), "der zweite Wert soll 1 sein")
                 .BDDfy("Einfache Addition");
         }
 
