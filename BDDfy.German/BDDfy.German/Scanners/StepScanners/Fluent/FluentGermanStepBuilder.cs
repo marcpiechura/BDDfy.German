@@ -34,5 +34,11 @@ namespace BDDfy.German.Scanners.StepScanners.Fluent
             _scanner.AddStep(step, title, true, ExecutionOrder.Assertion, false, "Dann");
             return this;
         }
+
+        public FluentGermanStepBuilder<TScenario> Und(Action step, string title)
+        {
+            _scanner.AddStep(step, title, true, ExecutionOrder.ConsecutiveStep, false, "Und");
+            return this;
+        }
     }
 }
