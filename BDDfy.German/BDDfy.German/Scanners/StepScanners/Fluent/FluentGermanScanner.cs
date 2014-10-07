@@ -27,8 +27,7 @@ namespace BDDfy.German.Scanners.StepScanners.Fluent
             var action = StepActionFactory.GetStepAction<object>(o => stepAction());
             _steps.Add(new Step(action, new StepTitle(AppendPrefix(title, stepPrefix)), FixAsserts(asserts, executionOrder), FixConsecutiveStep(executionOrder), reports, new List<StepArgument>()));
         }
-
-
+        
         private string AppendPrefix(string title, string stepPrefix)
         {
             if (!title.StartsWith(stepPrefix, StringComparison.InvariantCultureIgnoreCase))
