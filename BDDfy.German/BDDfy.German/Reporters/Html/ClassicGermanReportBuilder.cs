@@ -213,6 +213,7 @@ namespace BDDfy.German.Reporters.Html
             }
         }
 
+        // ReSharper disable once ParameterTypeCanBeEnumerable.Local
         private string FormatTags(List<string> tags)
         {
             return string.Join(string.Empty, tags.Select(t => string.Format("<div class='tag'>{0}</div>", t)));
@@ -321,7 +322,7 @@ namespace BDDfy.German.Reporters.Html
                     ? string.Format("<div class='namespaceName'>{0}</div>", story.Namespace)
                     : string.Format("<div class='storyTitle'>{0}{1}</div>", story.Metadata.TitlePrefix, story.Metadata.Title));
 
-                if (story.Metadata == null || string.IsNullOrEmpty(story.Metadata.Narrative1)) 
+                if (story.Metadata == null || string.IsNullOrEmpty(story.Metadata.Narrative1))
                     return;
 
                 using (OpenTag("<ul class='storyNarrative'>", HtmlTag.ul))
