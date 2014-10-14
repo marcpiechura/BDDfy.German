@@ -252,6 +252,121 @@ namespace BDDfy.German.Scanners.StepScanners.Fluent
 
         #endregion
 
+        #region Aber
+
+        public FluentGermanStepBuilder<TScenario> Aber(Expression<Action<TScenario>> step, string stepTextTemplate)
+        {
+            _scanner.AddStep(step, stepTextTemplate, true, true, ExecutionOrder.ConsecutiveStep, false, "Aber");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> Aber(Expression<Action<TScenario>> step, bool includeInputsInStepTitle)
+        {
+            _scanner.AddStep(step, null, includeInputsInStepTitle, true, ExecutionOrder.ConsecutiveStep, false, "Aber");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> Aber(Expression<Action<TScenario>> step)
+        {
+            _scanner.AddStep(step, null, true, true, ExecutionOrder.ConsecutiveStep, false, "Aber");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> Aber(Expression<Func<TScenario, Task>> step, string stepTextTemplate)
+        {
+            _scanner.AddStep(step, stepTextTemplate, true, true, ExecutionOrder.ConsecutiveStep, false, "Aber");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> Aber(Expression<Func<TScenario, Task>> step, bool includeInputsInStepTitle)
+        {
+            _scanner.AddStep(step, null, includeInputsInStepTitle, true, ExecutionOrder.ConsecutiveStep, false, "Aber");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> Aber(Expression<Func<TScenario, Task>> step)
+        {
+            _scanner.AddStep(step, null, true, true, ExecutionOrder.ConsecutiveStep, false, "Aber");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> Aber(Action step, string title)
+        {
+            _scanner.AddStep(step, title, true, ExecutionOrder.ConsecutiveStep, false, "Aber");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> Aber(Func<Task> step, string title)
+        {
+            _scanner.AddStep(step, title, true, ExecutionOrder.ConsecutiveStep, false, "Aber");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> Aber(string title)
+        {
+            _scanner.AddStep(() => { }, title, true, ExecutionOrder.ConsecutiveStep, false, "Aber");
+            return this;
+        }
+
+        #endregion
+
+        #region BeendenMit
+
+        public FluentGermanStepBuilder<TScenario> BeendenMit(Expression<Action<TScenario>> step, string stepTextTemplate)
+        {
+            _scanner.AddStep(step, stepTextTemplate, true, false, ExecutionOrder.TearDown, false, "");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> BeendenMit(Expression<Action<TScenario>> step, bool includeInputsInStepTitle)
+        {
+            _scanner.AddStep(step, null, includeInputsInStepTitle, false, ExecutionOrder.TearDown, false, "");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> BeendenMit(Expression<Action<TScenario>> step)
+        {
+            _scanner.AddStep(step, null, true, false, ExecutionOrder.TearDown, false, "");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> BeendenMit(Expression<Func<TScenario, Task>> step, string stepTextTemplate)
+        {
+            _scanner.AddStep(step, stepTextTemplate, true, false, ExecutionOrder.TearDown, false, "");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> BeendenMit(Expression<Func<TScenario, Task>> step, bool includeInputsInStepTitle)
+        {
+            _scanner.AddStep(step, null, includeInputsInStepTitle, false, ExecutionOrder.TearDown, false, "");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> BeendenMit(Expression<Func<TScenario, Task>> step)
+        {
+            _scanner.AddStep(step, null, true, false, ExecutionOrder.TearDown, false, "");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> BeendenMit(Action step, string title)
+        {
+            _scanner.AddStep(step, title, false, ExecutionOrder.TearDown, false, "");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> BeendenMit(Func<Task> step, string title)
+        {
+            _scanner.AddStep(step, title, false, ExecutionOrder.TearDown, false, "");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> BeendenMit(string title)
+        {
+            _scanner.AddStep(() => { }, title, false, ExecutionOrder.TearDown, false, "");
+            return this;
+        }
+
+        #endregion
 
         public FluentGermanStepBuilder<TScenario> Quelle(string title)
         {

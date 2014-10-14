@@ -1,4 +1,5 @@
-﻿using BDDfy.German.Reporters.Html;
+﻿using System;
+using BDDfy.German.Reporters.Html;
 using BDDfy.German.Scanners.StepScanners.Fluent;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -26,10 +27,20 @@ namespace BDDfy.German.Samples
                 .Wenn(() => Value++, "Der Wert um 1 erhört wird")
                 .Und(() => Value2 = 1, "Und ein zweiter Wert auf 1 gesetzt wird")
                 .Dann(() => Value.Should().Be(2), "Soll der Wert 2 sein")
+                .Aber(() => Value--, "Aber der Wert kann auch mit 1 subtrahiert werden")
                 .Und(() => Value2.Should().Be(1), "der zweite Wert soll 1 sein")
                 .Quelle("Kunde xyz")
+                .BeendenMit(() =>
+                {
+                    Value = 0;
+                    Value2 = 0;
+                }, "Beenden mit dem Zurücksetzen der Werte auf 0")
                 .BDDfy("Einfache Addition");
+
+            Value2.Should().Be(0);
+            Value.Should().Be(0);
         }
+
 
         public int Value2 { get; set; }
 
