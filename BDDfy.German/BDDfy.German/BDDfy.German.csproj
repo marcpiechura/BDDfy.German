@@ -56,6 +56,7 @@
       <DependentUpon>HtmlReportResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Reporters\Html\HtmlReportTag.cs" />
+    <Compile Include="Scanners\StepScanners\Fluent\ExpressionExtensions.cs" />
     <Compile Include="Scanners\StepScanners\Fluent\Fluent.cs" />
     <Compile Include="Scanners\GermanScanner.cs" />
     <Compile Include="Scanners\StepScanners\Fluent\FluentGermanScanner.cs" />
