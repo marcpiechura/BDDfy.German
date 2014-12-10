@@ -8,15 +8,18 @@ namespace BDDfy.German.Scanners.StepScanners.Fluent
     public class FluentGermanStepBuilder<TScenario> where TScenario : class
     {
         private readonly FluentGermanScanner<TScenario> _scanner;
+        private readonly GermanTestContext _germanContext;
 
         public FluentGermanStepBuilder(TScenario storyObject)
         {
-            var existingContext = TestContext.GetContext(this);
+            _germanContext = new GermanTestContext();
+            TestContext.SetContext(this, _germanContext);
 
-            if (existingContext.FluentScanner == null)
-                existingContext.FluentScanner = new FluentGermanScanner<TScenario>(this, storyObject);
+            if (_germanContext.FluentScanner == null)
+                _germanContext.FluentScanner = new FluentGermanScanner<TScenario>(this, storyObject);
+            _germanContext.TestObject = storyObject;
 
-            _scanner = (FluentGermanScanner<TScenario>)existingContext.FluentScanner;
+            _scanner = (FluentGermanScanner<TScenario>)_germanContext.FluentScanner;
         }
 
         #region Angenommen
@@ -371,6 +374,12 @@ namespace BDDfy.German.Scanners.StepScanners.Fluent
         public FluentGermanStepBuilder<TScenario> Quelle(string title)
         {
             _scanner.AddStep(() => {}, title, false, ExecutionOrder.Initialize, false, "Quelle");
+            return this;
+        }
+
+        public FluentGermanStepBuilder<TScenario> MitBeispielen(ExampleTable examples)
+        {
+            _germanContext.Examples = examples;
             return this;
         }
     }

@@ -62,6 +62,7 @@
     <Compile Include="Scanners\StepScanners\Fluent\FluentGermanScanner.cs" />
     <Compile Include="Scanners\StepScanners\Fluent\FluentGermanStepBuilder.cs" />
     <Compile Include="StoryAttribute.cs" />
+    <Compile Include="GermanTestContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
